@@ -4,12 +4,23 @@ namespace MAP
 {
     public class Program
     {
+        string message = "";
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to mood Analyser Program");
         }
 
-        public string moodAnalyser(string message)
+        public Program()
+        {
+
+        }
+
+        public Program(string message)
+        {
+            this.message = message;
+        }
+
+        public string moodAnalyser()
         {
             string mood = "";
             if(message=="I am in Sad Mood :(")
