@@ -11,7 +11,7 @@ namespace UnitTestMAP
         {
             Program MoodAnalyzer = new Program();
             string mood = "Sad";
-            string mood2 = MoodAnalyzer.moodAnalyser("I am in Sad Mood");
+            string mood2 = MoodAnalyzer.moodAnalyser("I am in Sad Mood :(");
             Assert.AreEqual(mood, mood2);
         }
 
@@ -20,7 +20,7 @@ namespace UnitTestMAP
         {
             Program MoodAnalyzer = new Program();
             string mood = "Happy";
-            string mood2 = MoodAnalyzer.moodAnalyser("I am in Happy Mood");
+            string mood2 = MoodAnalyzer.moodAnalyser("I am in Happy Mood :)");
             Assert.AreEqual(mood, mood2);
         }
     }

@@ -12,9 +12,9 @@ namespace MAP
         public string moodAnalyser(string message)
         {
             string mood = "";
-            if(message=="I am in Sad Mood")
+            if(message=="I am in Sad Mood :(")
                 mood = "Sad";
-            if (message == "I am in Happy Mood")
+            if (message == "I am in Happy Mood :)")
                 mood = "Happy";
             return mood;
         }
