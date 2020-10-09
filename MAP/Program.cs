@@ -22,11 +22,21 @@ namespace MAP
 
         public string moodAnalyser()
         {
+            string []array = new string[] { "" };
+            array = message.Split(" ");
             string mood = "";
-            if(message=="I am in Sad Mood :(")
+            /*if(message=="I am in Sad Mood :(")
                 mood = "Sad";
-            if (message == "I am in Happy Mood :)")
+            else if (message == "I am in Happy Mood :)")
+                mood = "Happy";*/
+            try
+            {
+                mood = array[3];
+            }
+            catch(IndexOutOfRangeException e)
+            {
                 mood = "Happy";
+            }
             return mood;
         }
     }

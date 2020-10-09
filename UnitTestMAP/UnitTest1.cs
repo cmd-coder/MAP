@@ -23,5 +23,14 @@ namespace UnitTestMAP
             string mood2 = MoodAnalyzer.moodAnalyser();
             Assert.AreEqual(mood, mood2);
         }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            Program MoodAnalyzer = new Program();
+            string mood = "Happy";
+            string mood2 = MoodAnalyzer.moodAnalyser();
+            Assert.AreEqual(mood, mood2);
+        }
     }
 }
