@@ -20,15 +20,11 @@ namespace MAP
             this.message = message;
         }
 
-        public string moodAnalyser()
+        /*public string moodAnalyser()
         {
             string []array = new string[] { "" };
             array = message.Split(" ");
             string mood = "";
-            /*if(message=="I am in Sad Mood :(")
-                mood = "Sad";
-            else if (message == "I am in Happy Mood :)")
-                mood = "Happy";*/
             try
             {
                 mood = array[3];
@@ -38,6 +34,24 @@ namespace MAP
                 mood = "Happy";
             }
             return mood;
+        }*/
+        public string moodAnalyser()
+        {
+            try
+            {
+                if(message.Equals(string.Empty))
+                {
+                    throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
+                }
+                if (message.Contains("sad"))
+                    return "sad";
+                else
+                    return "happy";
+            }
+            catch(NullReferenceException)
+            {
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
+            }
         }
     }
 }

@@ -7,30 +7,55 @@ namespace UnitTestMAP
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethodSadMood()
         {
-            Program MoodAnalyzer = new Program("I am in Sad Mood :(");
-            string mood = "Sad";
+            Program MoodAnalyzer = new Program("I am in sad Mood :(");
+            string mood = "sad";
             string mood2 = MoodAnalyzer.moodAnalyser();
             Assert.AreEqual(mood, mood2);
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void TestMethodAnyMood()
         {
-            Program MoodAnalyzer = new Program("I am in Happy Mood :)");
-            string mood = "Happy";
+            Program MoodAnalyzer = new Program("I am in Any Mood :)");
+            string mood = "happy";
             string mood2 = MoodAnalyzer.moodAnalyser();
             Assert.AreEqual(mood, mood2);
         }
 
         [TestMethod]
-        public void TestMethod3()
+        public void TestMethodNullMood()
         {
-            Program MoodAnalyzer = new Program();
+            /*Program MoodAnalyzer = new Program();
             string mood = "Happy";
             string mood2 = MoodAnalyzer.moodAnalyser();
-            Assert.AreEqual(mood, mood2);
+            Assert.AreEqual(mood, mood2);*/
+            string mood = null;
+            Program MoodAnalyser = new Program(mood);
+            try
+            {
+                string mood2 = MoodAnalyser.moodAnalyser();
+            }
+            catch(MoodAnalysisException mae)
+            {
+                Assert.AreEqual("Mood should not be null", mae.Message);
+            }
+        }
+        
+        [TestMethod]
+        public void TestMethodEmptyMood()
+        {
+            string mood = string.Empty;
+            Program MoodAnalyser = new Program(mood);
+            try
+            {
+                string mood2 = MoodAnalyser.moodAnalyser();
+            }
+            catch(MoodAnalysisException mae)
+            {
+                Assert.AreEqual("Mood should not be empty", mae.Message);
+            }
         }
     }
 }
