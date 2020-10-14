@@ -93,5 +93,40 @@ namespace UnitTestMAP
                 Assert.AreEqual("Constructor is not found", mae.Message);
             }
         }
+
+        [TestMethod]
+        public void CreateMoodAnalysis_UsingParameterizedConstructorPassingProgramClassAndConstructor_ReturnMoodAnalyserObject()
+        {
+            object expected = new Program("HAPPY");
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MAP.Program", "Program");
+            Assert.AreEqual(expected.GetType(), obj.GetType());
+        }
+
+        [TestMethod]
+        public void CreateMoodAnalysis_WrongClassNameUsingParameterizedConstructor_ThrowCustomException()
+        {
+            object expected = new Program("HAPPY");
+            try
+            {
+                object obj = MoodAnalyserFactory.CreateMoodAnalyser("MAP.WrongProgram", "Program");
+            }
+            catch (MoodAnalysisException mae)
+            {
+                Assert.AreEqual("Class not found", mae.Message);
+            }
+        }
+
+        public void CreateMoodAnalysis_WrongConstructorNameUsingParameterizedConstructor_ThrowCustomException()
+        {
+            object expected = new Program("HAPPY");
+            try
+            {
+                object obj = MoodAnalyserFactory.CreateMoodAnalyser("MAP.Program", "WrongProgram");
+            }
+            catch (MoodAnalysisException mae)
+            {
+                Assert.AreEqual("Constructor is not found", mae.Message);
+            }
+        }
     }
 }
