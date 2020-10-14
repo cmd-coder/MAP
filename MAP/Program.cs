@@ -20,21 +20,6 @@ namespace MAP
             this.message = message;
         }
 
-        /*public string moodAnalyser()
-        {
-            string []array = new string[] { "" };
-            array = message.Split(" ");
-            string mood = "";
-            try
-            {
-                mood = array[3];
-            }
-            catch(IndexOutOfRangeException e)
-            {
-                mood = "Happy";
-            }
-            return mood;
-        }*/
         public string moodAnalyser()
         {
             try
